@@ -1,0 +1,38 @@
+import apache_beam as beam
+from apache_beam.options.pipeline_options import PipelineOptions
+from handler import TransactionHandler
+
+class TransactionProcessing(beam.PTransform):
+    """Composite Transform to process transactions"""
+
+    def expand(self, pcoll):
+        return (
+            pcoll
+            | "Parse CSV" >> beam.Map(TransactionHandler.parse_csv)
+            | "Filter Amount > 20" >> beam.Filter(TransactionHandler.filter_out_transactions_amount)
+            | "Filter Year >= 2010" >> beam.Filter(TransactionHandler.filter_out_transactions_before_2010)
+            | "Extract Date" >> beam.Map(TransactionHandler.extract_date)
+            | "Sum By Date" >> beam.CombinePerKey(sum)
+            | "Format as JSON" >> beam.Map(TransactionHandler.format_as_json)
+        )
+
+def run_pipeline():
+    options = PipelineOptions()
+    
+    with beam.Pipeline(options=options) as p:
+        (
+            p
+            | "Read CSV" >> beam.io.ReadFromText(
+                "gs://cloud-samples-data/bigquery/sample-transactions/transactions.csv",
+                skip_header_lines=1
+            )
+            | "Process Transactions" >> TransactionProcessing()
+            | "Write Output" >> beam.io.WriteToText(
+                "output/results",
+                file_name_suffix=".jsonl.gz",
+                compression_type=beam.io.filesystem.CompressionTypes.GZIP
+            )
+        )
+
+if __name__ == "__main__":
+    run_pipeline()
