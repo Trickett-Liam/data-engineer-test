@@ -1,50 +1,61 @@
-# Apache Beam Batch Job
+Apache Beam Batch Job
 
-This repository contains a simple Apache Beam batch processing pipeline that reads transaction data from a CSV file, processes it, and writes the results to a Gzipped JSONL file. The solution fulfills the requirements of the Data Engineer Tech Test.
+This repository contains a simple Apache Beam batch processing pipeline that reads transaction data from a CSV file, processes it, and writes the results to a Gzipped JSONL file.
 
-## Prerequisites
+Prerequisites
 
 Before setting up the project, ensure you have the following installed:
 
-- **Python 3.10+**
-- **Apache Beam** (with the Direct Runner)
-- **pip** (for managing Python dependencies)
+Python 3.10+
+Apache Beam (with the Direct Runner)
+pip (for managing Python dependencies)
 
-## Setup
+Setup
 
-### 1. Clone the Repository
+1. Clone the Repository
 Clone this repository to your local machine:
 
 git clone <repository_url>
+
 cd <repository_name>
 
-### 2. Create and Activate a Virtual Environment
-If you don’t have `venv` installed, you can create a new virtual environment with the following command:
+2. Create and Activate a Virtual Environment
+Make sure to use the exact Python interpreter inside your virtual environment. For example, if your working path is:
+
+/Users/liam.trickett/Test/data-engineer-test/venv/bin/python
+
+Create the virtual environment using:
 
 python3 -m venv venv
 
-Then, activate the virtual environment:
-
-For **macOS/Linux**:
+Activate the virtual environment on macOS/Linux:
 
 source venv/bin/activate
 
-For **Windows**:
+Once activated, verify you're using the correct interpreter by running:
 
-venv\Scripts\activate
+which python
 
-Once the virtual environment is activated, install all the required Python libraries listed in the `requirements.txt` file:
+You should see an output similar to:
+
+/Users/liam.trickett/Test/data-engineer-test/venv/bin/python
+
+Then, install the required Python libraries:
 
 pip install -r requirements.txt
 
-## Running the Pipeline
+Running the Pipeline
 
-Once you've set up the environment, you can run the pipeline with the following command:
+To run the pipeline, use one of the following whitelisted commands:
 
 python <path_to_pipeline_script>.py
 
-## Running Tests
+For example, if your main script is named main.py, run:
 
-To run unit tests, use the following command:
+python main.py
+
+Running Tests
+
+To run unit tests, use the following whitelisted command:
 
 pytest tests/unit_test.py
