@@ -44,7 +44,7 @@ Then, install the required Python libraries:
 
 pip install -r requirements.txt
 
-Running the Pipeline
+3. Running the Pipeline
 
 To run the pipeline, use one of the following whitelisted commands:
 
