@@ -1,6 +1,9 @@
 import apache_beam as beam
+import logging
 from apache_beam.options.pipeline_options import PipelineOptions
 from handler import TransactionHandler
+
+logging.basicConfig(level=logging.INFO)
 
 class TransactionProcessing(beam.PTransform):
     """Composite Transform to process transactions"""
@@ -17,22 +20,30 @@ class TransactionProcessing(beam.PTransform):
         )
 
 def run_pipeline():
+    logging.info("Starting Apache Beam pipeline...")
+
     options = PipelineOptions()
     
-    with beam.Pipeline(options=options) as p:
-        (
-            p
-            | "Read CSV" >> beam.io.ReadFromText(
-                "gs://cloud-samples-data/bigquery/sample-transactions/transactions.csv",
-                skip_header_lines=1
+    try:
+        with beam.Pipeline(options=options) as p:
+            (
+                p
+                | "Read CSV" >> beam.io.ReadFromText(
+                    "gs://cloud-samples-data/bigquery/sample-transactions/transactions.csv",
+                    skip_header_lines=1
+                )
+                | "Process Transactions" >> TransactionProcessing()
+                | "Write Output" >> beam.io.WriteToText(
+                    "output/results",
+                    file_name_suffix=".jsonl.gz",
+                    compression_type=beam.io.filesystem.CompressionTypes.GZIP
+                )
             )
-            | "Process Transactions" >> TransactionProcessing()
-            | "Write Output" >> beam.io.WriteToText(
-                "output/results",
-                file_name_suffix=".jsonl.gz",
-                compression_type=beam.io.filesystem.CompressionTypes.GZIP
-            )
-        )
+
+        logging.info("Pipeline execution completed successfully!")
+
+    except Exception as e:
+        logging.error(f"Pipeline execution failed: {e}", exc_info=True)
 
 if __name__ == "__main__":
     run_pipeline()
