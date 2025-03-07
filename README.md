@@ -6,7 +6,7 @@ This repository contains a simple Apache Beam batch processing pipeline that rea
 
 Before setting up the project, ensure you have the following installed:
 
-- **Python 3.10+**
+- **Python 3.10** (via pyenv recommended)
 - **Apache Beam** (with the Direct Runner)
 - **pip** (for managing Python dependencies)
 
@@ -21,6 +21,28 @@ Clone this repository to your local machine:
 Navigate to the project directory:
 
 **cd <repository_name>**
+
+### Install Python Version Using pyenv 
+
+To ensure you're using the correct version of Python (3.10.0), we recommend using pyenv. This tool allows you to easily manage multiple versions of Python and automatically set the version for your project.
+
+Install pyenv (if it's not already installed):
+
+**brew install pyenv**
+
+Install Python 3.10.0 using pyenv
+
+Inside the project directory, run:
+
+**pyenv local 3.10.0**
+
+Verify Python version:
+
+You can verify that the correct version of Python is being used by running:
+
+**pyenv version**
+
+This should output 3.10.0.
 
 ### Create and Activate a Virtual Environment
 
