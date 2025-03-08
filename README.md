@@ -1,15 +1,12 @@
 # Apache Beam Batch Job
 
-This repository contains a simple Apache Beam batch processing pipeline that reads transaction data from a CSV file, processes it, and writes the results to a Gzipped JSONL file.
+This repository contains a simple Apache Beam batch processing pipeline that reads transaction data from a CSV file, processes it, and writes the results to a Gzipped JSONL file. The solution is containerized with Docker to ensure a reproducible environment.
 
 ## Prerequisites
 
-Before setting up the project, ensure you have the following installed:
-
-- **Python 3.10** (via pyenv recommended)
-- **Apache Beam** (with the Direct Runner)
-- **Docker** (for containerized execution)
-- **pip** (for managing Python dependencies)
+- **Docker** (and Docker Compose) – for containerized execution  
+- **Git** – to clone the repository  
+- *(Optional)* **Python 3.10** – if you prefer to run the pipeline or tests locally using a virtual environment
 
 ## Setup
 
@@ -17,34 +14,77 @@ Before setting up the project, ensure you have the following installed:
 
 Clone this repository to your local machine:
 
-**git clone https://github.com/Trickett-Liam/data-engineer-test.git**
+    git clone https://github.com/Trickett-Liam/data-engineer-test.git
 
 Navigate to the project directory:
 
-**cd data-engineer-test**
+    cd data-engineer-test
 
-### Using Docker Compose
+### Build the Docker Image
 
-If you prefer using Docker Compose, you can define a `docker-compose.yml` file and run the following:
+Use Docker Compose to build the image (ensuring a clean build):
 
-**docker-compose up --build**
+    docker-compose build --no-cache
 
 ## Running the Pipeline
 
-To run the pipeline, use the following command:
+### Using Docker Compose
 
-**python <path_to_pipeline_script>.py**
+To run the Apache Beam pipeline inside the Docker container, run:
 
-For example, if your main script is named **main.py**, run:
+    docker-compose run --rm app /venv/bin/python main.py
 
-**python main.py**
+This command starts the container and executes `main.py` using the Python executable from the container's virtual environment.
+
+### Running Locally
+
+If you prefer to run the pipeline on your host machine:
+
+1. **Create a virtual environment:**
+
+       python3 -m venv venv
+
+2. **Activate the virtual environment:**
+
+   - On macOS/Linux:
+
+         source venv/bin/activate
+
+   - On Windows:
+
+         venv\Scripts\activate
+
+3. **Install the dependencies:**
+
+       pip install -r requirements.txt
+
+4. **Run the pipeline:**
+
+       python main.py
 
 ## Running Tests
 
-To run unit tests, use the following command:
+### Using Docker Compose
 
-**python -m pytest <path_to_test_file>**
+To run unit tests inside the Docker container, run:
 
-For example, if your unit test script is named **unit_test.py**, run:
+    docker-compose run --rm app /venv/bin/python -m unittest discover tests
 
-**python -m pytest tests/unit_test.py**
+This command uses the container’s Python interpreter (with Apache Beam installed) to run all tests in the `tests` directory.
+
+### Running Locally
+
+If you want to run tests locally:
+
+1. **Ensure your virtual environment is activated** (see above).
+
+2. **Run the tests:**
+
+       python -m unittest discover tests
+
+*Note:* If tests are not discovered, ensure your test files are named using the `test_*.py` pattern and that an empty `__init__.py` file exists in the `tests` directory.
+
+## Notes
+
+- The output files in the `output/` directory are git-ignored.
+- The pipeline uses the DirectRunner, so no Cloud Dataflow configuration is required.
