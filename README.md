@@ -17,11 +17,11 @@ Before setting up the project, ensure you have the following installed:
 
 Clone this repository to your local machine:
 
-**git clone <repository_url>**
+**git clone https://github.com/Trickett-Liam/data-engineer-test.git**
 
 Navigate to the project directory:
 
-**cd <repository_name>**
+**cd data-engineer-test**
 
 ### Using Docker Compose
 
