@@ -23,53 +23,15 @@ Navigate to the project directory:
 
 **cd <repository_name>**
 
-### Build and Run the Docker Container
+### Using Docker Compose
 
-Build the Docker Image
-
-**docker build -t apache-beam-pipeline .**
-
-Run the Pipeline in a Container
-
-**docker run --rm -v $(pwd):/app apache-beam-pipeline**
-
-This mounts your current directory ($(pwd)) inside the container at /app.
-
-Using Docker Compose (Optional)
-
-If you prefer using Docker Compose, you can define a docker-compose.yml file and run the following:
+If you prefer using Docker Compose, you can define a `docker-compose.yml` file and run the following:
 
 **docker-compose up --build**
 
 Running the Pipeline
 
 To execute the pipeline inside the container:
-
-### Create and Activate a Virtual Environment
-
-Make sure to use the exact Python interpreter inside your virtual environment. For example, if your working path is:
-
-**/Users/liam.trickett/Test/data-engineer-test/venv/bin/python**
-
-Create the virtual environment using:
-
-**python3 -m venv venv**
-
-Activate the virtual environment on macOS/Linux:
-
-**source venv/bin/activate**
-
-Once activated, verify you're using the correct interpreter by running:
-
-**which python**
-
-You should see an output similar to:
-
-**/Users/liam.trickett/Test/data-engineer-test/venv/bin/python**
-
-Then, install the required Python libraries:
-
-**pip install -r requirements.txt**
 
 ## Running the Pipeline
 
@@ -83,6 +45,10 @@ For example, if your main script is named **main.py**, run:
 
 ## Running Tests
 
-To run unit tests, use the following whitelisted command:
+To run unit tests, use one of the following whitelisted commands:
 
-**pytest tests/unit_test.py**
+**python -m pytest <path_to_test_file>**
+
+For example, if your unit test script is named **unit_test.py**, run:
+
+**python -m pytest tests/unit_test.py**
