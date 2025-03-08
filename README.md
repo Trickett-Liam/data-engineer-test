@@ -8,6 +8,7 @@ Before setting up the project, ensure you have the following installed:
 
 - **Python 3.10** (via pyenv recommended)
 - **Apache Beam** (with the Direct Runner)
+- **Docker** (for containerized execution)
 - **pip** (for managing Python dependencies)
 
 ## Setup
