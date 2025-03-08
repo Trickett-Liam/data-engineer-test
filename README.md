@@ -14,6 +14,7 @@ Both methods are detailed below.
 - **Docker** (and Docker Compose) – for containerized execution  
 - **Git** – to clone the repository  
 - *(Optional)* **Python 3.10** – if you prefer to run the pipeline or tests locally using a virtual environment
+- **Colima** - install and start Colima before using Docker 
 
 ## Setup
 
@@ -41,7 +42,12 @@ Check that you have access to the required bucket:
 
 If access is denied, ensure you have the correct IAM permissions.
 
+
 ### Build the Docker Image
+
+Install and start Colima before using Docker
+
+    colima start
 
 Use Docker Compose to build the image (ensuring a clean build):
 
