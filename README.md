@@ -54,11 +54,15 @@ If you prefer to run the pipeline on your host machine:
 
          venv\Scripts\activate
 
-3. **Install the dependencies:**
+3. **Ensure VS Code is Using the Correct Interpreter:**
+
+Open the Command Palette (Cmd + Shift + P on Mac or Ctrl + Shift + P on Windows)
+
+4. **Install the dependencies:**
 
        pip install -r requirements.txt
 
-4. **Run the pipeline:**
+5. **Run the pipeline:**
 
        python main.py
 
