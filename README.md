@@ -20,6 +20,20 @@ Navigate to the project directory:
 
     cd data-engineer-test
 
+### Authenticate with Google Cloud
+
+Since this pipeline reads data from a Google Cloud Storage (GCS) bucket, you must authenticate using the Google Cloud SDK.
+
+Ensure you are logged into Google Cloud:
+
+    gcloud auth application-default login
+
+Check that you have access to the required bucket:
+
+    gsutil ls gs://cloud-samples-data/bigquery/sample-transactions/
+
+If access is denied, ensure you have the correct IAM permissions.
+
 ### Build the Docker Image
 
 Use Docker Compose to build the image (ensuring a clean build):
