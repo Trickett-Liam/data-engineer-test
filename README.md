@@ -4,8 +4,8 @@ This repository contains a simple Apache Beam batch processing pipeline that rea
 
 The pipeline can be executed in two ways:
 
-Using Docker (recommended): Ensures a reproducible environment by running the pipeline inside a container.
-Running locally: If you prefer to execute the pipeline directly on your host machine using a Python virtual environment.
+- **Using Docker** (recommended) Ensures a reproducible environment by running the pipeline inside a container.
+- **Running locally** If you prefer to execute the pipeline directly on your host machine using a Python virtual environment.
 
 Both methods are detailed below.
 
