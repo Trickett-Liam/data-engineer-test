@@ -22,27 +22,27 @@ Navigate to the project directory:
 
 **cd <repository_name>**
 
-### Install Python Version Using pyenv 
+### Build and Run the Docker Container
 
-To ensure you're using the correct version of Python (3.10.0), we recommend using pyenv. This tool allows you to easily manage multiple versions of Python and automatically set the version for your project.
+Build the Docker Image
 
-Install pyenv (if it's not already installed):
+**docker build -t apache-beam-pipeline .**
 
-**brew install pyenv**
+Run the Pipeline in a Container
 
-Install Python 3.10.0 using pyenv
+**docker run --rm -v $(pwd):/app apache-beam-pipeline**
 
-Inside the project directory, run:
+This mounts your current directory ($(pwd)) inside the container at /app.
 
-**pyenv local 3.10.0**
+Using Docker Compose (Optional)
 
-Verify Python version:
+If you prefer using Docker Compose, you can define a docker-compose.yml file and run the following:
 
-You can verify that the correct version of Python is being used by running:
+**docker-compose up --build**
 
-**pyenv version**
+Running the Pipeline
 
-This should output 3.10.0.
+To execute the pipeline inside the container:
 
 ### Create and Activate a Virtual Environment
 
