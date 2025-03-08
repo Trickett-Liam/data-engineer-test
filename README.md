@@ -29,13 +29,9 @@ If you prefer using Docker Compose, you can define a `docker-compose.yml` file a
 
 **docker-compose up --build**
 
-Running the Pipeline
-
-To execute the pipeline inside the container:
-
 ## Running the Pipeline
 
-To run the pipeline, use one of the following whitelisted commands:
+To run the pipeline, use the following command:
 
 **python <path_to_pipeline_script>.py**
 
@@ -45,7 +41,7 @@ For example, if your main script is named **main.py**, run:
 
 ## Running Tests
 
-To run unit tests, use one of the following whitelisted commands:
+To run unit tests, use the following command:
 
 **python -m pytest <path_to_test_file>**
 
