@@ -1,6 +1,7 @@
 # 📌 Apache Beam Batch Job
 
 This repository contains a simple **Apache Beam batch processing pipeline** that:
+
 ✅ Reads transaction data from a CSV file  
 ✅ Processes the data  
 ✅ Writes the results to a **Gzipped JSONL file**
@@ -10,12 +11,12 @@ This repository contains a simple **Apache Beam batch processing pipeline** that
 ## **⚡ Prerequisites**
 Before setting up, ensure you have the following:
 
-- ✅ **Git** – to clone the repository  
-- ✅ **Python 3.10** – required for local execution  
-- ✅ **Pyenv** – to ensure the correct Python version  
-- ✅ **Docker (and Docker Compose)** – for containerized execution  
-- ✅ **Colima** – (Mac/Linux users) required before using Docker  
-- ✅ **Google Cloud SDK** – for authentication (if accessing GCS)
+-  **Git** – to clone the repository  
+-  **Python 3.10** – required for local execution  
+-  **Pyenv** – to ensure the correct Python version  
+-  **Docker (and Docker Compose)** – for containerized execution  
+-  **Colima** – (Mac/Linux users) required before using Docker  
+-  **Google Cloud SDK** – for authentication (if accessing GCS)
 
 ---
 
