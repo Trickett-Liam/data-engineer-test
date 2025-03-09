@@ -13,8 +13,9 @@ Both methods are detailed below.
 
 - **Docker** (and Docker Compose) – for containerized execution  
 - **Git** – to clone the repository  
-- *(Optional)* **Python 3.10** – if you prefer to run the pipeline or tests locally using a virtual environment
-- **Colima** - install and start Colima before using Docker 
+- **Python 3.10** – if you prefer to run the pipeline or tests locally using a virtual environmen
+- **Colima** - install and start Colima before using Docker
+- **pyenv** - for managing locally python version
 
 ## Setup
 
@@ -67,11 +68,30 @@ This command starts the container and executes `main.py` using the Python execut
 
 If you prefer to run the pipeline on your host machine:
 
-1. **Create a virtual environment:**
+1. **Check python version:**
+
+Check the correct version python is being used:
+
+    python3 --version
+
+If it already shows Python 3.10.0, you’re good to go!
+
+If not, you can install it using pyenv:
+
+    pyenv install 3.10.0
+    
+Then set it locally for this project:
+
+    pyenv local 3.10.0
+
+Now, whenever you enter this project, Python 3.10.0 will be used.
+
+
+2. **Create a virtual environment:**
 
        python3 -m venv venv
 
-2. **Activate the virtual environment:**
+3. **Activate the virtual environment:**
 
    - On macOS/Linux:
 
@@ -81,15 +101,15 @@ If you prefer to run the pipeline on your host machine:
 
          venv\Scripts\activate
 
-3. **Ensure VS Code is Using the Correct Interpreter:**
+4. **Ensure VS Code is Using the Correct Interpreter:**
 
 Open the Command Palette (Cmd + Shift + P on Mac or Ctrl + Shift + P on Windows)
 
-4. **Install the dependencies:**
+5. **Install the dependencies:**
 
        pip install -r requirements.txt
 
-5. **Run the pipeline:**
+6. **Run the pipeline:**
 
        python main.py
 
