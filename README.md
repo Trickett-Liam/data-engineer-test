@@ -94,7 +94,7 @@ Now, Python **3.10.0 will be used** whenever you enter this project.
 
        which python
    
-4.Paste in the interpetor path.
+4. Paste into the interpetor path.
 
 ### **4️⃣ Install Dependencies**
     pip install -r requirements.txt
