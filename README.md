@@ -64,11 +64,11 @@ This uses the container’s **Apache Beam environment**.
 
 ## **🏠 Setting Up & Running Locally**
 ### **1️⃣ Check Python Version**
-Ensure you’re using **Python 3.10.0**:
+Ensure you’re using **Python 3.10. - 3.12**:
 
     python3 --version
 
-✅ If it prints `Python 3.10.0`, you're good!  
+✅ If it prints `Python 3.10.0 - Python 3.12.0`, you're good!  
 ❌ If not, install it using **Pyenv**:
 
     pyenv install 3.10.0
@@ -90,6 +90,11 @@ Now, Python **3.10.0 will be used** whenever you enter this project.
 ### **3️⃣ Ensure VS Code Uses the Correct Interpreter**
 1. Open **Command Palette** (`Cmd + Shift + P` on Mac / `Ctrl + Shift + P` on Windows)
 2. Search for **"Python: Select Interpreter"** and choose your **Python 3.10.0 virtual environment**.
+3. Run the following
+
+       which python
+   
+4.Paste in the interpetor path.
 
 ### **4️⃣ Install Dependencies**
     pip install -r requirements.txt
