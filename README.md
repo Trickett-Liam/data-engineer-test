@@ -45,10 +45,11 @@ Before using Docker:
 ### **4️⃣ Build the Docker Image**
 Run:
 
-    docker-compose build --no-cache
+    make build
 
 ### **5️⃣ Run the Pipeline with Docker**
-    docker-compose run --rm app /venv/bin/python main.py
+
+    make run
 
 This starts the container and executes `main.py` using the container’s **virtual environment**.
 
@@ -57,7 +58,7 @@ This starts the container and executes `main.py` using the container’s **virtu
 ## **🧪 Running Tests with Docker**
 To run tests inside the **Docker container**, execute:
 
-    docker-compose run --rm app /venv/bin/python -m unittest discover tests
+    make test
 
 This uses the container’s **Apache Beam environment**.
 
