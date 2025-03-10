@@ -6,4 +6,8 @@ services:
     container_name: my-python-app
     volumes:
       - .:/app
+      - $HOME/.config/gcloud:/root/.config/gcloud:ro  # ✅ Mount GCP credentials
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/application_default_credentials.json
     working_dir: /app
+    command: ["/venv/bin/python", "main.py"]
