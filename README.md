@@ -20,7 +20,7 @@ Before setting up, ensure you have the following:
 
 ---
 
-## **🐳 Setting Up & Running with Docker (Recommended)**
+## **🐳 Setting Up & Running with Docker**
 ### **1️⃣ Clone the Repository**
     git clone https://github.com/Trickett-Liam/data-engineer-test.git
     
@@ -61,59 +61,6 @@ To run tests inside the **Docker container**, execute:
     make test
 
 This uses the container’s **Apache Beam environment**.
-
----
-
-## **🏠 Setting Up & Running Locally**
-### **1️⃣ Check Python Version**
-Ensure you’re using **Python 3.10. - 3.12**:
-
-    python3 --version
-
-✅ If it prints `Python 3.10.0 - Python 3.12.0`, you're good!  
-❌ If not, install it using **Pyenv**:
-
-    pyenv install 3.10.0
-    pyenv local 3.10.0
-
-Now, Python **3.10.0 will be used** whenever you enter this project.
-
-### **2️⃣ Create and Activate a Virtual Environment**
-    python3 -m venv venv
-
-- **On macOS/Linux:**
-  
-      source venv/bin/activate
-
-- **On Windows:**
-  
-      venv\Scripts\activate
-
-### **3️⃣ Ensure VS Code Uses the Correct Interpreter**
-1. Open **Command Palette** (`Cmd + Shift + P` on Mac / `Ctrl + Shift + P` on Windows)
-2. Search for **"Python: Select Interpreter"** and choose your **Python 3.10.0 virtual environment**.
-3. Run the following
-
-       which python
-   
-4. Paste into the interpetor path.
-
-### **4️⃣ Install Dependencies**
-    pip install -r requirements.txt
-
-### **5️⃣ Run the Pipeline Locally**
-    python main.py
-
----
-
-## **🧪 Running Tests Locally**
-Ensure the virtual environment is **activated**, then run:
-
-    python -m unittest discover tests
-
-✅ If tests are not discovered, ensure:
-- Test files are named using the `test_*.py` pattern
-- The `tests/` directory contains an empty `__init__.py` file
 
 ---
 
