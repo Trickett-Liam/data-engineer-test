@@ -35,6 +35,8 @@ def run_pipeline():
                 | "Process Transactions" >> TransactionProcessing()
                 | "Write Output" >> beam.io.WriteToText(
                     "output/results",
+                    num_shards=1,
+                    shard_name_template="", 
                     file_name_suffix=".jsonl.gz",
                     compression_type=beam.io.filesystem.CompressionTypes.GZIP
                 )
